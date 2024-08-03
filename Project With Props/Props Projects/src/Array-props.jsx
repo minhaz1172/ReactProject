@@ -6,7 +6,7 @@ const ArrayPassProp = (props) => {
     <>
 
       <div>
-        <li className="list-group-item text-primary fw-bold" >{props.backendlist}</li>
+        <li className="list-group-item text-primary" >{props.backendlist}</li>
       </div>
     </>
   );

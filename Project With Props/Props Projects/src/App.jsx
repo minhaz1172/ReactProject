@@ -5,6 +5,7 @@ import './App.css'
 import './Prop.css'
 import Prop1 from './prop_parameter'
 import PropMain from './propmain';
+import FunctionProps from './function_props'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
 
         {/*Now we learn object passign via props */}
         <PropMain title1="Backend Fundamental" />
+        <FunctionProps />
       </div>
 
 

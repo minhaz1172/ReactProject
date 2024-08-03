@@ -1,0 +1,20 @@
+.Front {
+  color: rgb(229, 255, 0);
+  font-size: medium;
+  font-weight: lighter;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+.container {
+  background-color: rgb(200, 20, 220);
+  width: 100%;
+  max-width: 540px;
+  height: 300px;
+}
+
+.title {
+  text-decoration: underline;
+  color: cyan;
+
+}

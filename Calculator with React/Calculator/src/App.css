@@ -1,0 +1,19 @@
+.calculator {
+  margin: 0 auto;
+  background-color: rgb(233, 229, 235);
+  border-color: rgb(195, 187, 187);
+  border-radius: 5px;
+  height: 280px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.display {
+  width: 180px;
+  height: 40px;
+  margin: 8px auto;
+  display: block;
+}

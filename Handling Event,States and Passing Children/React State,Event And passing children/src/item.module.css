@@ -6,7 +6,7 @@
 .listGroupItem {
   padding: 5px;
   margin: 5px 0;
-  background-color: #ccd13b;
+  background-color: #c2d5bb;
   border: 1px solid #1c80e3;
   border-radius: 4px;
   font-weight: bold;
@@ -14,4 +14,23 @@
 
 h1 {
   align-items: center;
+}
+
+
+.button {
+  float: right;
+  margin-left: 10px;
+  /* Example custom style */
+  font-weight: bold;
+  /* Bold text */
+  transition: 0.3s ease;
+  background-color: #10fdfd !important;
+  /*  you can use !important to ensure your styles override Bootstrap’s:*/
+}
+
+.button:hover {
+  background-color: #b88d17 !important;
+  /* Change background color on hover */
+  color: rgb(16, 4, 4) !important;
+  /* Change text color on hover */
 }

@@ -2,19 +2,20 @@ import React from 'react';
 import classNames from 'classnames';/* we should use the className liabrary to apply bootstrap and css module combinely */
 import Container from './Container';
 import styles from './item.module.css';
+import Foodinput from './Foodinput.jsx';
 
 const FoodList = () => {
   const foodItems = ["chal", "dal", "meat", "fish"];
-  const handleClick = (items) => {
-    console.log(`${items} is bought`);
-    alert(`${items} is clicked`);
+  const handleClick = (item) => {
+    console.log(`${item} is bought`);
+    alert(`${item} is clicked`);
   }
 
   return (
     <>
       <Container>
         <div>
-          <h1 className="text-center">Healthy Food</h1>
+          <Foodinput />
           <ul className="list-group">
             {foodItems.map((item, index) => (
               <li key={index} className={classNames('list-group-item', styles.listGroupItem)}>

@@ -1,0 +1,78 @@
+.statebut {
+  margin: 10px 5px;
+  background-color: darkorange;
+  border-radius: 6px;
+  border: none;
+  padding: 8px 6px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+
+
+}
+
+.statebut::after {
+  content: " ";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 8px;
+  background-color: rgb(255, 153, 0);
+  color: white;
+
+
+}
+
+/*glow effect*/
+.statebut::before {
+  content: " ";
+  z-index: -1;
+  background: chartreuse;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% +4px);
+  height: calc(100% +4px);
+  filter: blur(8px);
+  /* animation */
+  transition: opacity .3s ease-in-out;
+  border-radius: 8px;
+  opacity: 1;
+
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.statebut:hover::before {
+  opacity: 1;
+}
+
+.statebut:hover::after {
+  background: transparent;
+  opacity: 1;
+
+
+}
+
+.statebut:active {
+  color: rgba(255, 0, 255, 0.184);
+
+}

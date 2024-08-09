@@ -2,7 +2,7 @@ import styles from './Foodinput.module.css';
 
 const Foodinput = () => {
   const onChange_event = (event) => {
-    console.log(event.target.value);
+    console.log(event);
   }
 
   return (

@@ -1,0 +1,41 @@
+.inputForm {
+  margin: 15px 8px;
+  width: 300px;
+  height: 35px;
+}
+
+.button {
+  float: right;
+  background-color: #10fdfd !important;
+  border: 3px;
+}
+
+.listGroupItem {
+  font-weight: bold;
+  margin-top: 10px;
+
+}
+
+.listGroup {
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #17b862 !important;
+  transition: 1s;
+}
+
+.Addbutton {
+  margin-left: 10px;
+  color: cornsilk;
+  background-color: black;
+  border: 2px solid fuchsia;
+  border-radius: 4px;
+  font-weight: bolder;
+}
+
+.Addbutton:hover {
+  background-color: rgb(222, 176, 91);
+  color: black;
+  transition: .8s;
+}

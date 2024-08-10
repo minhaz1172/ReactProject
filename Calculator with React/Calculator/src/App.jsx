@@ -6,7 +6,17 @@ function App() {
   const [calVal, setVal] = useState('');
 
   const onbutton = (buttonText) => {
-    console.log(buttonText);
+    if (buttonText === 'AC') {
+      setVal('')
+    }
+    else if (buttonText === '=') {
+      const result = eval(calVal);//mathmathical expression evalued by eval method
+      setVal(result);
+    }
+    else {
+      const newvalue = calVal + buttonText;
+      setVal(newvalue);
+    }
 
   }
 

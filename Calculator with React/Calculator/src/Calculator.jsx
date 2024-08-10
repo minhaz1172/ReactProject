@@ -9,7 +9,7 @@ const Calculator = (props) => {
       <input className={styles.display} type="text" value={props.displayvalue} readOnly /> {/* readonly ensures that value will not put by keyboard without button click*/}
       <div className={styles.btnContainer}>
         {buttonContainer.map((buttonName, index) => (
-          <button key={index} className={styles.btn} onClick={props.onButtonclick}>
+          <button key={index} className={styles.btn} onClick={() => { props.onButtonclick(buttonName) }}>
             {buttonName}
           </button>
         ))}

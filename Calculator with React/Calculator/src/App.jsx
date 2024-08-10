@@ -5,11 +5,16 @@ import Calculator from './Calculator'
 function App() {
   const [calVal, setVal] = useState('');
 
+  const onbutton = (buttonText) => {
+    console.log(buttonText);
+
+  }
+
 
 
   return (
     <>
-      <Calculator displayvalue={calVal} onButtonclick={() => console.log("button is clicked")} />
+      <Calculator displayvalue={calVal} onButtonclick={onbutton} />
 
     </>
   )

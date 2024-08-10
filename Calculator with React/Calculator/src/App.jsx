@@ -1,12 +1,15 @@
-
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
 import Calculator from './Calculator'
 
 function App() {
+  const [calVal, setVal] = useState('');
+
+
 
   return (
     <>
-      <Calculator />
+      <Calculator displayvalue={calVal} onButtonclick={() => console.log("button is clicked")} />
 
     </>
   )

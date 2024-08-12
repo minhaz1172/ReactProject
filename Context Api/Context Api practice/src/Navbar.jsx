@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <>
       <div>
-        <h1>Navbar</h1>
+        <h1>The context api practice</h1>
         <Button />
       </div>
     </>

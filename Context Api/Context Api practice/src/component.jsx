@@ -6,7 +6,7 @@ function Component() {
   return (
 
     <div>
-      {counter}
+      <h5>the current value is: {counter.count}</h5> {/* here counter.count written beacuse of passing object from app.jsx */}
     </div>
   )
 }

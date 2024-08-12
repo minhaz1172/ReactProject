@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <counterContext.Provider value={count}> {/* by provider value the value can acces navbar.jsx and button.jsx  can access value from navbar.jsx*/}
+      <counterContext.Provider value={{ count, setCount }}> {/* by provider value the value can acces navbar.jsx and button.jsx  can access value from navbar.jsx*/}
 
         <Navbar />
       </counterContext.Provider>

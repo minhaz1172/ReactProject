@@ -3,18 +3,17 @@ import React, { useReducer } from 'react';
 const initialstate = 0;
 
 const reducer = (state, action) => {
-  switch (action) {
-    case 'INCREMENT':
-      return state + 2;
-    case 'DECREMENT':
-      return state - 2;
-    default:
-      return state;
+  if (action.type === 'INCREMENT') {
+    return state + 2;
+  }
+  else if (action.type === 'DECREMENT') {
+    return state - 2;
   }
 }
 
+
 function UseReducer() {
-  const [state, dispatch] = useReducer(reducer, 0);
+  const [state, dispatch] = useReducer(reducer, initialstate);
   return (
     <div className='reducer'>
       <h4>the count value is:{state}</h4>

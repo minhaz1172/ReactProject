@@ -11,14 +11,20 @@ import CreatePost from './Components/Create Post'
 
 function App() {
   const [selecedTab, setSelectedTab] = useState("Home");
+  let content;
+  if (selecedTab === 'Home') {
+    content = <Postlist />
+  }
+  else {
+    content = <CreatePost />
+  }
 
   return (
     <div className='app-container'>
       <Sidebar />
       <div className='components'>
         <Header />
-        {selecedTab === "Home" ? (<Postlist />) : (<CreatePost />)}
-
+        {content}
         <Footer />
       </div>
     </div>

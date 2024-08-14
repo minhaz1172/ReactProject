@@ -7,6 +7,7 @@ import Footer from './Components/footer';
 import Sidebar from './Components/Sidebar';
 import Postlist from './Components/postlist';
 import CreatePost from './Components/Create Post';
+import PostlistProvider from './store/postliststore';
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("");
@@ -19,14 +20,16 @@ function App() {
   }
 
   return (
-    <div className='app-container'>
-      <Sidebar select={selectedTab} setSelectedTab={setSelectedTab} />
-      <div className='components'>
-        <Header />
-        {content}
-        <Footer />
+    <PostlistProvider>
+      <div className='app-container'>
+        <Sidebar select={selectedTab} setSelectedTab={setSelectedTab} />
+        <div className='components'>
+          <Header />
+          {content}
+          <Footer />
+        </div>
       </div>
-    </div>
+    </PostlistProvider>
   );
 }
 

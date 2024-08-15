@@ -16,3 +16,11 @@
 .badge {
   margin: 3px;
 }
+
+.alert {
+  width: 160px;
+}
+
+.deleteicon {
+  cursor: pointer;
+}

@@ -1,8 +1,6 @@
 import React from 'react';
 
 function Sidebar(props) {
-
-
   return (
     <>
       <div
@@ -23,9 +21,9 @@ function Sidebar(props) {
           <li className="nav-item">
             <a
               href="#"
-              className={`nav-link text-white ${(props.select) === "Home" ? "active" : ""}`}
+              className={`nav-link text-white ${props.selectedTab === "Home" ? "active" : ""}`}
               aria-current="page"
-              onClick={() => props.setSelectedTab("Home")}  // * this will set selectedTab value equal to Home automatically
+              onClick={() => props.setSelectedTab("Home")}
             >
               <svg className="bi pe-none me-2" width="16" height="16">
                 <use xlinkHref="#home"></use>
@@ -36,8 +34,8 @@ function Sidebar(props) {
           <li>
             <a
               href="#"
-              className={`nav-link text-white ${(props.select) === "Create Post" ? "active" : ""}`}
-              onClick={() => props.setSelectedTab("Create Post")} // * this will set selectedTab value equal to Create Post Automatically
+              className={`nav-link text-white ${props.selectedTab === "Create Post" ? "active" : ""}`}
+              onClick={() => props.setSelectedTab("Create Post")}
             >
               <svg className="bi pe-none me-2" width="16" height="16">
                 <use xlinkHref="#speedometer2"></use>

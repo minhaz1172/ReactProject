@@ -21,7 +21,7 @@ function Sidebar(props) {
           <li className="nav-item">
             <a
               href="#"
-              className={`nav-link text-white ${props.selectedTab === "Home" ? "active" : ""}`}
+              className={`nav-link text-white ${props.select === "Home" ? "active" : ""}`}
               aria-current="page"
               onClick={() => props.setSelectedTab("Home")}
             >
@@ -34,7 +34,7 @@ function Sidebar(props) {
           <li>
             <a
               href="#"
-              className={`nav-link text-white ${props.selectedTab === "Create Post" ? "active" : ""}`}
+              className={`nav-link text-white ${props.select === "Create Post" ? "active" : ""}`}
               onClick={() => props.setSelectedTab("Create Post")}
             >
               <svg className="bi pe-none me-2" width="16" height="16">

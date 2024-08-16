@@ -10,7 +10,12 @@ export const Postlist = createContext({
 
 
 const postlistReducer = (currentPostlist, action) => {
-  return currentPostlist;
+  let newpostList = currentPostlist;
+
+  if (action.type === 'DeletePost')
+    newpostList = currentPostlist.filter(post => post.id !== action.payload.postID);//filter mathes payload postId AND currentPostLIST id ,,,if not match that will remain otherwise delete while click on the on icon 
+
+  return newpostList;
 }
 
 
@@ -19,6 +24,14 @@ const PostlistProvider = ({ children }) => {
   const addPost = () => { };
   const deletePost = (postID) => {
     console.log(`called for post to delete: ${postID}`);
+    dispatchList(
+      {
+        type: "DeletePost",
+        payload: (
+          { postID }   //  payload refers to the additional data that is sent along with an action to the reducer. The payload contains the information needed by the reducer to update the state appropriately.
+        )
+      }
+    )
   };
 
 

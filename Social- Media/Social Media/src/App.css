@@ -24,3 +24,8 @@
 .deleteicon {
   cursor: pointer;
 }
+
+.form-content {
+  margin: 30px;
+  width: 60%;
+}

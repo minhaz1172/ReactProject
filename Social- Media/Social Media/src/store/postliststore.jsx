@@ -21,15 +21,19 @@ const postlistReducer = (currentPostlist, action) => {
 
 const PostlistProvider = ({ children }) => {
   const [createPostlist, dispatchList] = useReducer(postlistReducer, DefaultPostList)
-  const addPost = () => { };
+  const addPost = (userID, postTitle, postContent, reactions, tags) => {
+    console.log(`${userID},${postTitle},${postContent},${reactions},${tags}`);
+
+
+  };
   const deletePost = (postID) => {
     console.log(`called for post to delete: ${postID}`);
     dispatchList(
       {
         type: "DeletePost",
-        payload: (
+        payload:
           { postID }   //  payload refers to the additional data that is sent along with an action to the reducer. The payload contains the information needed by the reducer to update the state appropriately.
-        )
+
       }
     )
   };

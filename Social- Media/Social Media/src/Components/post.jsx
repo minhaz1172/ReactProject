@@ -22,7 +22,7 @@ function Post({ post }) {  // Destructure the post object from props passing fro
           </span>
         ))}
         <div class="alert alert-success mt-3 " role="alert">
-          Reactions:{post.reactions}
+          Reactions:{post.reactions.likes}
         </div>
       </div>
     </div>

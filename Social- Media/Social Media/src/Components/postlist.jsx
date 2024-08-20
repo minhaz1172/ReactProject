@@ -4,12 +4,19 @@ import { Postlist as Postlistdata } from '../store/postliststore';
 import Message from './Message';
 
 function Postlist() {
-  const { createPostlist } = useContext(Postlistdata);
+  const { createPostlist, AddInitialPosts } = useContext(Postlistdata);
 
   //getpost mETHOD
   const Getpost = () => {
     console.log("get post clicked");
-
+    fetch('https://dummyjson.com/posts')
+      .then(res => res.json())
+      //console print 
+      .then((data) => {
+        console.log(data); // Log data from API
+        AddInitialPosts(data.posts); // Add posts to state
+      })
+      .catch(error => console.error('Error fetching posts:', error)); // Add error handling
   }
 
 

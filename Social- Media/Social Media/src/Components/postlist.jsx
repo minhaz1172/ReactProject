@@ -1,12 +1,28 @@
 import React, { useContext } from 'react';
 import Post from './post';
 import { Postlist as Postlistdata } from '../store/postliststore';
+import Message from './Message';
 
 function Postlist() {
   const { createPostlist } = useContext(Postlistdata);
 
-  if (!createPostlist) {
-    return <p>No posts available.</p>; // Fallback content if no posts are found
+  //getpost mETHOD
+  const Getpost = () => {
+    console.log("get post clicked");
+
+  }
+
+
+  if (createPostlist.length === 0) {
+    return (
+      <>
+
+        <center>
+          <Message />  {/*Fallback content if no posts are found*/}
+          <button type="button" class="btn btn-outline-success fw-bold mt-2" onClick={Getpost}>GetNewPosts From Server</button>
+        </center>
+      </>
+    )
   }
 
   return (

@@ -21,7 +21,7 @@ function CreatePost() {
   }
   return (
 
-    <form className='form-content' onSubmit={handlesubmit} >
+    <form className='form-content' onSubmit={handlesubmit} > {/*on submit event work for submit something  */}
 
       <div className="mb-3">
         <label htmlFor="user-id" className="form-label">Enter Your ID here</label>

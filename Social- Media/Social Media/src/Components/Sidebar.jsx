@@ -5,7 +5,7 @@ function Sidebar(props) {
     <>
       <div
         className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
-        style={{ width: '280px', height: '800px' }}
+        style={{ width: '212px', height: '800x' }}
       >
         <a
           href="/"
@@ -14,17 +14,15 @@ function Sidebar(props) {
           <svg className="bi pe-none me-2" width="40" height="32">
             <use xlinkHref="#bootstrap"></use>
           </svg>
-          <span className="fs-4">Sidebar</span>
+          <span className="fs-4">Menu</span>
         </a>
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
-            <a
-              href="#"
+            <a href="#"
               className={`nav-link text-white ${props.select === "Home" ? "active" : ""}`}
               aria-current="page"
-              onClick={() => props.setSelectedTab("Home")}
-            >
+              onClick={() => props.setSelectedTab("Home")}>
               <svg className="bi pe-none me-2" width="16" height="16">
                 <use xlinkHref="#home"></use>
               </svg>

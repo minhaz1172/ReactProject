@@ -11,17 +11,38 @@ export const Postlist = createContext({
 
 const postlistReducer = (currentPostlist, action) => {
   let newpostList = currentPostlist;
-
+  //deletepost method working
   if (action.type === 'DeletePost')
     newpostList = currentPostlist.filter(post => post.id !== action.payload.postID);//filter mathes payload postId AND currentPostLIST id ,,,if not match that will remain otherwise delete while click on the on icon 
+
+  //adpost method working
+  else if (action.type === 'AddPost') {
+    newpostList = [action.payload, ...currentPostlist]; //add new post to the currentPostList array
+    console.log(Date.now());
+  }
 
   return newpostList;
 }
 
 
 const PostlistProvider = ({ children }) => {
-  const [createPostlist, dispatchList] = useReducer(postlistReducer, DefaultPostList)
+  const [createPostlist, dispatchList] = useReducer(postlistReducer, [])
   const addPost = (userID, postTitle, postContent, reactions, tags) => {
+    dispatchList(
+      {
+        type: "AddPost",
+        payload:
+        {
+          id: Date.now().toString(),//date is converted to unique id
+          title: postTitle,
+          body: postContent,
+          reactions: reactions,
+          userId: userID,
+          tags: tags
+        }
+      }
+    )
+
     console.log(`${userID},${postTitle},${postContent},${reactions},${tags}`);
 
 
@@ -45,23 +66,5 @@ const PostlistProvider = ({ children }) => {
 };
 
 
-const DefaultPostList = [
-  {
-    id: '1',
-    title: "Going to Chiitagong",
-    body: "Hi friends ,i am going to chittagong today,enjoying too much",
-    reactions: 2,
-    userId: "user112",
-    tags: ["vacation", "chittagong", "enjoyment"]
-  },
 
-  {
-    id: "2",
-    title: "planing For wedding",
-    body: "my sister wedding today,she is very happy",
-    reactions: 3,
-    userId: "user114",
-    tags: ["wedding", "sister", "enjoy"]
-  }
-]
 export default PostlistProvider;

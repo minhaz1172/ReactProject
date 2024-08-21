@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Post from './post';
 import { Postlist as Postlistdata } from '../store/postliststore';
 import Message from './Message';
@@ -6,8 +6,8 @@ import Message from './Message';
 function Postlist() {
   const { createPostlist, AddInitialPosts } = useContext(Postlistdata);
 
-  //getpost mETHOD
-  const Getpost = () => {
+  //useEffect hook usintg
+  useEffect(() => {                     //here ( is a anonymous function)
     console.log("get post clicked");
     fetch('https://dummyjson.com/posts')
       .then(res => res.json())
@@ -16,20 +16,17 @@ function Postlist() {
         console.log(data); // Log data from API
         AddInitialPosts(data.posts); // Add posts to state
       })
-      .catch(error => console.error('Error fetching posts:', error)); // Add error handling
-  }
+      .catch(error => console.error('Error fetching posts:', error))
+  }, []); // Add error handling
+
 
 
   if (createPostlist.length === 0) {
-    return (
-      <>
 
-        <center>
-          <Message />  {/*Fallback content if no posts are found*/}
-          <button type="button" class="btn btn-outline-success fw-bold mt-2" onClick={Getpost}>GetNewPosts From Server</button>
-        </center>
-      </>
-    )
+    <center>
+      <Message />  {/*Fallback content if no posts are found*/}
+
+    </center>
   }
 
   return (

@@ -32,7 +32,7 @@ function Sidebar(props) {
           <li>
             <a
               href="#"
-              className={`nav-link text-white ${props.select === "Create Post" ? "active" : ""}`}
+              className={`nav-link text-white ${props.select === "Create Post" ? "active" : ""}`}//if home then active else null
               onClick={() => props.setSelectedTab("Create Post")}
             >
               <svg className="bi pe-none me-2" width="16" height="16">

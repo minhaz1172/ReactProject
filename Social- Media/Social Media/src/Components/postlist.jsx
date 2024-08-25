@@ -13,12 +13,12 @@ function Postlist() {
   useEffect(() => {                     //here ( is a anonymous function)
 
     setFetching(true);
-    console.log('fetching is started')
+    console.log('fetching is started');
 
-    fetch('https://dummyjson.com/posts')
-
-
-
+    //using abort controller is important when fetching data and to cleanup api calling ,,,otherwise api call will contantly
+    const controller = new AbortController(); // Create an instance of AbortController
+    const signal = controller.signal;
+    fetch('https://dummyjson.com/posts', { signal })
       .then(res => res.json())
       //console print 
       .then((data) => {
@@ -27,8 +27,20 @@ function Postlist() {
         setFetching(false);
         console.log('fetching is returned')
       })
-      .catch(error => console.error('Error fetching posts:', error))// Add error handling
+      .catch(error => {
+        if (error.name === 'AbortError') {
+          console.log('Fetch was aborted'); //checking abort is working or not
+        } else {
+          console.error('Error fetching posts:', error);
+          setFetching(false);
+        }
+      });// Ensure fetching is set to false in case of error// Add error handling
     //console.log('fetching is completed')
+    // cancel the fetch request when component unmounts
+    return () => {
+      console.log("cleaning up UseEffect");
+      controller.abort(); // abort the fetch request when component unmounts
+    }
 
   }, []);
 
@@ -45,7 +57,8 @@ function Postlist() {
     <>
       {fetching && <LoadingMsg />}
       {!fetching && createPostlist.map((post) => (
-        <Post key={post.id} post={post} />//createpostlist pass as post in Post.jsx using map method,,,createPostList imported by usecontext from postlist-store
+        <Post key={post.id} post={post} /> // Ensure unique keys */}
+        //createpostlist pass as post in Post.jsx using map method,,,createPostList imported by usecontext from postlist-store
 
       ))}
 

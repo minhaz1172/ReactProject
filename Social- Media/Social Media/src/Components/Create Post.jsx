@@ -12,13 +12,16 @@ function CreatePost() {
   const handlesubmit = (event) => {
     event.preventDefault();// Prevents the form from refreshing the page
 
-    const userID = userIDref.current.value;
-    const postTitle = postTitleref.current.value;
-    const postContent = postContentref.current.value;
+
+    const userId = userIDref.current.value;
+    const title = postTitleref.current.value;
+    const body = postContentref.current.value;
     const reactions = reactionsref.current.value;
-    const tags = tagsref.current.value.split(' ');//split convert tags 'which are spaced' to array 
-    addPost(userID, postTitle, postContent, reactions, tags);
-  }
+    const tags = tagsref.current.value.split(' '); // Split tags into an array
+
+    // console.log("Submitting Post:", newPost);
+    addPost(userId, title, body, reactions, tags); // Pass the entire post object to addPost
+  };
   return (
 
     <form className='form-content' onSubmit={handlesubmit} > {/*on submit event work for submit something  */}
@@ -58,5 +61,6 @@ function CreatePost() {
     </form >
   )
 }
+
 
 export default CreatePost;

@@ -26,7 +26,7 @@ const postlistReducer = (currentPostlist, action) => {
   //adpost method working
   else if (action.type === 'AddPost') {
     newpostList = [action.payload, ...currentPostlist]; //add new post to the currentPostList array
-    console.log(Date.now());
+    console.log("New Post Added:", newpostList);
   }
 
 
@@ -36,26 +36,39 @@ const postlistReducer = (currentPostlist, action) => {
 
 const PostlistProvider = ({ children }) => {
   const [createPostlist, dispatchList] = useReducer(postlistReducer, [])
-  const addPost = (userID, postTitle, postContent, reactions, tags) => {
-    dispatchList(
-      {
-        type: "AddPost",
-        payload:
-        {
-          id: Date.now().toString(),//date is converted to unique id
-          title: postTitle,
-          body: postContent,
-          reactions: reactions,
-          userId: userID,
-          tags: tags
-        }
-      }
-    )
-
-    console.log(`${userID},${postTitle},${postContent},${reactions},${tags}`);
 
 
+  const addPost = (userId, title, body, reactions, tags) => {
+    const newPost = {
+      id: Date.now().toString(),
+      title: title,
+      body: body,
+      reactions: reactions,
+      userId: userId,
+      tags: tags
+    };
+    dispatchList({
+      type: "AddPost",
+      payload: newPost,
+    });
+    console.log("Post added:", newPost); // Add this line
   };
+
+
+  /*addpost method
+  const addPost = (post) => { // Accept a post object
+
+
+
+    dispatchList({
+      type: "AddPost",
+      payload: {
+        ...post, // Spread the post object to be added to the list
+        id: Date.now().toString(), // Ensure each post has a unique ID
+      }
+    })
+
+  };*/
 
   //Post which is come fromdummy json server
   const AddInitialPosts = (Jsonposts) => {

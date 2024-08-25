@@ -8,24 +8,26 @@ import Sidebar from './Components/Sidebar';
 import Postlist from './Components/postlist';
 import CreatePost from './Components/Create Post';
 import PostlistProvider from './store/postliststore';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("");
 
-  let content;
-  if (selectedTab === 'Home') {
-    content = <Postlist />;
-  } else {
-    content = <CreatePost />;
-  }
-
+  /*  let content;
+    if (selectedTab === 'Home') {
+      content = <Postlist />;
+    } else {
+      content = <CreatePost />;
+    }
+  */
   return (
     <PostlistProvider>
       <div className='app-container'>
         <Sidebar select={selectedTab} setSelectedTab={setSelectedTab} />
         <div className='components'>
           <Header />
-          {content}
+          <Outlet />
+          {/* {content} */}{/* here we will use outlet of react router instead of content ,then see it is running or not */}
           <Footer />
         </div>
       </div>

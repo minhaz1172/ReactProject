@@ -1,0 +1,20 @@
+.form-control {
+  max-width: 45%;
+}
+
+.btn {
+  margin-left: 12px;
+  font-weight: bold !important;
+  padding: 0 20px !important;
+}
+
+.list-group-item {
+  max-width: 51%;
+}
+
+.removebtn {
+  margin-left: 10px;
+  font-weight: bold !important;
+  align-items: center;
+  color: rgb(255, 0, 0) !important;
+}
